@@ -1,6 +1,8 @@
 # cit3102-m5-water-station
 Project title: cit3102-m5-water-station
+
 Section: IT2E
+
 Resource: Water station
 
 Names:
