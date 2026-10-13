@@ -13,7 +13,13 @@ return new class extends Migration
     {
         Schema::create('water_stations', function (Blueprint $table) {
             $table->id();
+            $table->integer('Customer_id');
+            $table->string('Customer_name');
+            $table->string('Water_type');
+            $table->integer('Total_volume_delivered');
+            $table->string('Payment');
             $table->timestamps();
+            
         });
     }
 
