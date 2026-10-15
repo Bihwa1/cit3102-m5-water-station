@@ -13,14 +13,29 @@ Route::get('/user', function (Request $request) {
 Route::post('/register', [StationController::class, 'register']);
 Route::post('/login', [StationController::class, 'login']);
 
+#TESTING
+#Route::get('/water-stations', [StationController::class, 'index']); 
+#Route::get('/users', [StationController::class, 'index']); 
+Route::delete('/water-stations/{id}', [StationController::class, 'destroy']);
+
+
 #PROTECTED ROUTES
 Route::middleware('auth:sanctum')->group(function () {
     #Step 3
+
+    #GET registered users, gawa ko lang yan
+    Route::get('/users', [StationController::class, 'index']); 
+    
+    #GET registered customers
     Route::get('/water-stations', [StationController::class, 'index']);
+
+    # creates customer
     Route::post('/water-stations', [StationController::class, 'store']);
-    Route::get('/water-stations/{id}', [StationController::class, 'show']);
-    Route::put('/water-stations/{id}', [StationController::class, 'update']);
-    Route::delete('/water-stations/{id}', [StationController::class, 'destroy']);
+
+    #
+    Route::get('/water-stations/{water_station}', [StationController::class, 'show']);
+    Route::put('/water-stations/{water_station}', [StationController::class, 'update']);
+    Route::delete('/water-stations/{water_station}', [StationController::class, 'destroy']);
 
 
     #Step 5.1

@@ -40,11 +40,28 @@ class StationController extends Controller
         ////
     }
 
+    public function getUsers()
+    {
+        $users = User::all();
+        return response()->json($users);
+    }
+
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
+        $validated = $request->validate([
+            'Customer_id'            => 'required|integer',
+            'Customer_name'          => 'required|string|max:255',
+            'Water_type'             => 'required|string|max:255',
+            'Total_volume_delivered' => 'required|numeric|min:0',
+            'Payment'                => 'required|string|max:255',
+        ]);
+
+        $station = WaterStation::create($validated);
+
+        return response()->json($station, 201);
         //
     }
     public function register(Request $request)
@@ -62,11 +79,14 @@ class StationController extends Controller
         ]);
 
         $token = $user->createToken('auth_token')->plainTextToken;
-        return response()->json(['message' => 'User registered successfully',  'user' => $user,
-            'token' => $token], 201);
+        return response()->json([
+            'message' => 'User registered successfully',
+            'user' => $user,
+            'token' => $token
+        ], 201);
     }
 
-     public function login(Request $request)
+    public function login(Request $request)
     {
         $fields = $request->validate([
             'email' => 'required|string|email',
@@ -102,7 +122,7 @@ class StationController extends Controller
         ], 200);
     }
 
-     public function me(Request $request)
+    public function me(Request $request)
     {
         return response()->json($request->user());
     }
@@ -115,26 +135,36 @@ class StationController extends Controller
 
 
 
-    public function show(string $water_station)
+    public function show(WaterStation $water_station)
     {
-        #is a table
         return response()->json($water_station);
-        //
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, WaterStation $water_station)
     {
-        //
+        $validated = $request->validate([
+            'Customer_id'            => 'sometimes|integer',
+            'Customer_name'          => 'sometimes|string|max:255',
+            'Water_type'             => 'sometimes|string|max:255',
+            'Total_volume_delivered' => 'sometimes|numeric|min:0',
+            'Payment'                => 'sometimes|string|max:255',
+        ]);
+
+        $water_station->update($validated);
+
+        return response()->json($water_station);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(WaterStation $water_station)
     {
-        //
+        $water_station->delete();
+
+        return response()->noContent();
     }
 }

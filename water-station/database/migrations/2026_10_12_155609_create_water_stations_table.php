@@ -16,7 +16,7 @@ return new class extends Migration
             $table->integer('Customer_id');
             $table->string('Customer_name');
             $table->string('Water_type');
-            $table->integer('Total_volume_delivered');
+            $table->decimal('Total_volume_delivered', 10, 2);
             $table->string('Payment');
             $table->timestamps();
             
