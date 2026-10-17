@@ -1,7 +1,10 @@
 # 1.Project Information
 Project title: cit3102-m5-water-station
+
 Section: IT2E
+
 Resource: Water station
+
 Names:
 - Lamando, Louie D.
 - Buensuceso, Ramon Reouben R.
