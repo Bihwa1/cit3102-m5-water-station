@@ -3,7 +3,7 @@ Project title: cit3102-m5-water-station
 
 Section: IT2E
 
-Resource: Water station
+Resource: Water station (Fields: `Customer_id` int, `Customer_name` string, `Water_type` string, `Total_volume_delivered` decimal, `Payment` int )
 
 Names:
 - Lamando, Louie D.
