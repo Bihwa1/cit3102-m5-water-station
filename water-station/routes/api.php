@@ -16,7 +16,6 @@ Route::post('/login', [StationController::class, 'login']);
 #TESTING
 #Route::get('/water-stations', [StationController::class, 'index']); 
 #Route::get('/users', [StationController::class, 'index']); 
-Route::delete('/water-stations/{id}', [StationController::class, 'destroy']);
 
 
 #PROTECTED ROUTES
