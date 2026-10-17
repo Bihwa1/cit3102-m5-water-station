@@ -1,10 +1,13 @@
 # 1.Project Information
-Project title: cit3102-m5-water-station
-Section: IT2E
-Resource: Water station
+Project title: 
+- cit3102-m5-water-station
+Section: 
+- IT2E
+Resource: 
+- Water station
 Names:
--Lamando, Louie D.
--Buensuceso, Ramon Reouben R.
+- Lamando, Louie D.
+- Buensuceso, Ramon Reouben R.
 
 # 2.Screenshots
 1. POST /api/register with a new user
@@ -40,7 +43,7 @@ Names:
 
 
 # 3.Setup steps
-## API Testing with Bruno
+### API Testing with Bruno
 
 This project uses [Bruno](https://www.usebruno.com/) to test API endpoints and inspect HTTP responses.
 
